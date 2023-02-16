@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- Google Tag Manager -->
+    <!-- <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-PSNRXT3");
+    </script> -->
+    <script>
+      (function (window, document, script, dataLayer, gtmId) {
+        //create the dL Object, attache it to the window
+        //set to it the previous dL if there is any or set to an empty array
+        window.dataLayer = window.dataLayer || [];
+        //use the push method on the dL array and push the first event into the dL
+        window.dataLayer.push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        //Grabbing the first script element on the page
+        //and storing in a var
+        var firstScriptOnPage = document.getElementsByTagName(script)[0];
+        //creating a new script tag and
+        //storing it in a var
+        var newJavaScriptTag = document.createElement(script);
+        //declare a var, and if dataLayer is not called "dataLayer",
+        //create a string that looks like this
+        //"&l=nameoflayer"
+        //otherwise just use an empty string
+        var backupDataLayer = dataLayer != "dataLayer" ? "&l=" + dataLayer : "";
+        //making the new JS tag load asynchronously
+        newJavaScriptTag.async = true;
+        //add source attr to the new JS tag and point it to our GTM container
+        newJavaScriptTag.src =
+          "https://www.googletagmanager.com/gtm.js?id=" + gtmId + backupDataLayer;
+        //on the first script tag on the page insert our newly created js tag
+        //before the current first one
+        firstScriptOnPage.parentNode.insertBefore(newJavaScriptTag, firstScriptOnPage);
+      })(window, document, "script", "dataLayer", "GTM-PSNRXT3");
+    </script>
+    <!-- End Google Tag Manager -->
+  </head>
+  <body>
+    <h1 id="heading">Good Morning MA#001</h1>
+    <button id="change-button">Change Heading</button>
+    <script src="script.js"></script>
+  </body>
+</html>
